@@ -4,15 +4,17 @@ var loses = 0;
 var guesses = [];
 var holder = [];
 var guesses_list = [];
-var ansVal = "a";
+var ansVal = "";
 var possible = ["red","blue","green","yellow",
                 "pink","black","white","orange",
                 "purple","teal","silver","brown"]
 var word = "";
 
+alert("Your goal is to guess what color im thinking of.");
+alert("Press any key to get Started!");
 $(document).keypress(function(event){   //65-90
     if(guesses_left === 15){
-        changeWord(); //possible.charAt(Math.floor(Math.random() * possible.length));
+        changeWord();
         resetHolder();
     }
     guesses_left--;
@@ -32,7 +34,7 @@ $(document).keypress(function(event){   //65-90
     if(isComplete()){
         wins++;
         guesses_left = 15;
-    } else if(guesses_left <= 0){
+    } else if(guesses_left < 0){
         guesses_left = 15;
         loses++;
     }
@@ -43,6 +45,7 @@ $(document).keypress(function(event){   //65-90
     $('#guesses_list').text(guesses_list);
 });
 
+//Checks if a letter is equal to a character at the index for the word
 function inWord(letter, index){
     if(letter === word.charAt(index)){
         return true;
@@ -50,6 +53,7 @@ function inWord(letter, index){
     return false;
 }
 
+//Checks if a letter has already been guessed
 function inList(letter){
     for(var i = 0; i < holder.length; i++){
         if(holder[i] !== "-"){
@@ -59,6 +63,7 @@ function inList(letter){
     return false;
 }
 
+//Checks if all the letters have been guessed correctly
 function isComplete(){
     for(var i = 0; i < word.length; i++){
         if(holder[i] === "-"){
@@ -68,10 +73,12 @@ function isComplete(){
     return true;
 }
 
+//Changes the word to a random word from the possible array
 function changeWord(){
     word = possible[Math.floor(Math.random() * 12)];
 }
 
+//Resets the arrays to start a new round
 function resetHolder(){
     holder = [];
     for(var j = 0; j < word.length; j++){

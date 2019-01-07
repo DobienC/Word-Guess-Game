@@ -1,13 +1,14 @@
 body{
-    background-color: blue;
+    background-color: #999999;
     color: white;
 }
+
 .center{
     text-align: center;
 }
 
 .title{
-    background-color: red;
-    color: white;
-    padding: 0px 20px;
+    background-color: white;
+    color: #999999;
+    padding: 10px 20px;
 }
