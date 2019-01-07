@@ -1,0 +1,13 @@
+body{
+    background-color: blue;
+    color: white;
+}
+.center{
+    text-align: center;
+}
+
+.title{
+    background-color: red;
+    color: white;
+    padding: 0px 20px;
+}

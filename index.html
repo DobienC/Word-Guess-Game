@@ -5,15 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Psychic Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Word Game</title>
 </head>
 <body>
     <script src="assets/javascript/game.js"></script>
-    <h1 id="test">Word Guess Game</h1>
-    <p>Guess what Word I'm thinking of</p>
-    <p>Wins: <div id="wins"> 0 </div></p>
-    <p>Loses: <div id="loses"> 0 </div></p>
-    <p>Gueses Left: <div id="guesses_left"> 10 </div></p>
-    <p>Your Gueses so far: <div id="guesses">  </div></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2"></div>    
+            <div class="col-sm-8"> <h1 class="title">Word Guess Game: Colors Edition</h1> </div>
+            <div class="col-sm-2"></div>        
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>    
+            <div class="col-sm-6 center"><p>Guess what Word I'm thinking of</p></div>
+            <div class="col-sm-3"></div>        
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>        
+            <div class="col-sm-6 center"><p>The Word: <span id="guesses"></span></p></div>
+            <div class="col-sm-3"></div>        
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3 center"><p>Wins: <span id="wins"> 0 </span></p></div>        
+            <div class="col-sm-3 center"><p>Loses: <span id="loses"> 0 </span></p></div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3 center"><p class="card-title">Gueses Left: <span id="guesses_left"> </span></p></div>        
+            <div class="col-sm-3 center"><p>Your guesses so far: <span id="guesses_list"></span></p></div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
 </body>
 </html>

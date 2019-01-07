@@ -3,12 +3,15 @@ var wins = 0;
 var loses = 0;
 var guesses = [];
 var holder = [];
+var guesses_list = [];
 var ansVal = "a";
-var possible = ["red","blue","green","yellow","pink"]
+var possible = ["red","blue","green","yellow",
+                "pink","black","white","orange",
+                "purple","teal","silver","brown"]
 var word = "";
 
 $(document).keypress(function(event){   //65-90
-    if(guesses_left === 10){
+    if(guesses_left === 15){
         changeWord(); //possible.charAt(Math.floor(Math.random() * possible.length));
         resetHolder();
     }
@@ -25,17 +28,19 @@ $(document).keypress(function(event){   //65-90
             guesses.push("-");
         }
     }
+    guesses_list.push(ansVal);
     if(isComplete()){
         wins++;
-        guesses_left = 10;
+        guesses_left = 15;
     } else if(guesses_left <= 0){
-        guesses_left = 10;
+        guesses_left = 15;
         loses++;
     }
     $('#wins').html(wins); //event.keyCode
     $('#loses').html(loses);
     $('#guesses_left').html(guesses_left);
     $('#guesses').text(guesses);
+    $('#guesses_list').text(guesses_list);
 });
 
 function inWord(letter, index){
@@ -64,7 +69,7 @@ function isComplete(){
 }
 
 function changeWord(){
-    word = possible[Math.floor(Math.random() * 5)];
+    word = possible[Math.floor(Math.random() * 12)];
 }
 
 function resetHolder(){
@@ -73,23 +78,5 @@ function resetHolder(){
         holder.push("-");
     }
     guesses = holder;
+    guesses_list = [];
 }
-
-
-// $(document).ready(function(){
-//     $('#wins').keypress(function() {
-//         $('#wins').html(wins);
-//     });
-
-//     $('#loses').keypress(function() {
-//         $('#loses').html(loses);
-//     });
-
-//     $('#guesses_left').keypress(function() {
-//         $('#guesses_left').html(guesses_left);
-//     });
-
-//     $('#guesses').keypress(function() {
-//         $('#guesses').html(guesses);
-//     });
-// });
