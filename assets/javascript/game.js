@@ -41,9 +41,18 @@ $(document).keypress(function(event){   //65-90
     $('#wins').html(wins); //event.keyCode
     $('#loses').html(loses);
     $('#guesses_left').html(guesses_left);
-    $('#guesses').text(guesses);
+    $('#guesses').text(turnGuesses);
     $('#guesses_list').text(guesses_list);
 });
+
+function turnGuesses(){
+    var str = "";
+    for(var i = 0; i < guesses.length; i++){
+        str = str + guesses[i];
+        str = str + " ";
+    }
+    return str;
+}
 
 //Checks if a letter is equal to a character at the index for the word
 function inWord(letter, index){
